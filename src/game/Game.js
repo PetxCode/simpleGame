@@ -12,7 +12,7 @@ const Game = () => {
   const[result, setResult] = useState(0)
   const[me, setMe] = useState(0)
   const[computer, setComputer] = useState(0)
-  const[timer, setTimer] = useState(0)
+  const[timer, setTimer] = useState(5)
   const[show, setShow] = useState(0)
 
 const compValue = (a, b) => {
@@ -27,7 +27,7 @@ useEffect(() => {
 
 useEffect(() => {
   setInterval(() => {
-    setTimer(el => el + 1)
+    setTimer(el => el - 1)
   }, 1000)
   // compValue(1,3)
 }, [])
@@ -38,6 +38,12 @@ useEffect(() => {
     compValue(0,5)
   }, 5000)
 }, [])
+
+useEffect(() => {
+  if(timer <= 0){
+    setTimer(5)
+  }
+}, [timer])
 
   return (
     <div
