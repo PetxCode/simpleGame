@@ -20,7 +20,9 @@ const compValue = (a, b) => {
 }
 
 useEffect(() => {
-  myRef.current = computer
+  setInterval(() => {
+    myRef.current = computer
+  }, 5000)
 }, [computer])
 
 useEffect(() => {
@@ -62,6 +64,7 @@ useEffect(() => {
       }}
       >CodeLab's Kids Game!</div>
       <div>Guess what the Computer is Thinking!</div>
+      <div>Previous: {myRef.current} | Computer: {computer}</div>
       <div
       style={{
         display:"flex",
